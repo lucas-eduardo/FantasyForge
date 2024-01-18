@@ -1,0 +1,13 @@
+### POST character
+POST http://localhost:3333/characters
+content-type: application/json
+
+{
+    "gameSystem": "Pathfinder",
+    "race": "Elf",
+    "class": "Rogue"
+}
+
+### GET characters
+
+GET http://localhost:3333/characters

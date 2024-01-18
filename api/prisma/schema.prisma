@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Character {
+  id String @id
+
+  name                  String  @unique
+  age                   Int
+  birthPlace            String  @map("birth_place")
+  childhoodStory        String  @map("childhood_story")
+  feelingsAboutParents  String  @map("feelings_about_parents")
+  parentsAlive          Boolean @map("parents_alive")
+  detailsAboutParents   String? @map("details_about_parents")
+  siblings              String?
+  youthFriends          String? @map("youth_friends")
+  maritalStatus         String  @map("marital_status")
+  conjugalHistory       String? @map("conjugal_history")
+  children              String?
+  education             String
+  profession            String
+  reasonForProfession   String  @map("reason_for_profession")
+  physicalDescription   String  @map("physical_description")
+  distinctiveTrait      String  @map("distinctive_trait")
+  goal                  String?
+  reasonForGoal         String? @map("reason_for_goal")
+  planIfSuccessful      String? @map("plan_if_successful")
+  planIfFailed          String? @map("plan_if_failed")
+  biggestObstacle       String? @map("biggest_obstacle")
+  overcomingObstacle    String? @map("overcoming_obstacle")
+  changeInWorld         String? @map("change_in_world")
+  changeInSelf          String? @map("change_in_self")
+  fears                 String?
+  selfDescription       String? @map("self_description")
+  attitudeTowardsWorld  String  @map("attitude_towards_world")
+  attitudeTowardsPeople String  @map("attitude_towards_people")
+  attitudeTowardsGroups String? @map("attitude_towards_groups")
+  leisureActivities     String? @map("leisure_activities")
+  clothingPreferences   String? @map("clothing_preferences")
+  workPreferences       String? @map("work_preferences")
+  favoriteFood          String? @map("favorite_food")
+  hobbies               String?
+  pet                   String?
+  idealCompany          String? @map("ideal_company")
+  typeOfLover           String? @map("type_of_lover")
+  residenceLocation     String  @map("residence_location")
+  climate               String?
+  reasonForResidence    String? @map("reason_for_residence")
+  commonProblems        String? @map("common_problems")
+  dailyRoutine          String? @map("daily_routine")
+  image                 String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+
+  @@map("characters")
+}
